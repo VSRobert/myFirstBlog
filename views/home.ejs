@@ -1,0 +1,21 @@
+<%- include('partials/header.ejs') %>
+<body>
+    <h1>Home</h1>
+    <p>
+        <%= homeContent %>
+    </p>
+        <% posts.forEach((post, index)=>{ %>
+               <div class="postStyle">
+                    <h3 style="text-align: start; justify-content: start;"><strong><%= post.title %></strong></h3>
+                    <p style="text-align: start; justify-content: start;">
+                        <% var shortText = post.content %>
+                        <% truncShortText = shortText.substring(0, 150) %>
+                        <%= truncShortText %>
+                    </p>
+                   
+                    <a href="/posts/<%= index %>/delete">Delete</a>      <%# delete %>
+                
+               </div>
+        <% }) %>
+</body>
+<%- include('partials/footer.ejs') %>
